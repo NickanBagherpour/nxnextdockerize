@@ -12,6 +12,8 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
+  output: 'standalone',
+  publicPath: '/public/', // Adjust the path as needed
 };
 
 const plugins = [
