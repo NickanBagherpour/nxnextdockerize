@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  app:
+    image: nx-nextjs-doc
+    # Remove the build section if you're using the built image
+    # build:
+    #   context: ./
+    #   target: production
+    #   dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+      - /app/public
+    ports:
+      - "3200:3200"
+    container_name: nx-nextjs-doc-app  # Custom name assigned here
