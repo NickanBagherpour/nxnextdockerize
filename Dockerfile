@@ -27,7 +27,6 @@ ENV NODE_ENV production
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-COPY --from=builder /app/apps/portal/public ./public
 
 # Set the correct permission for prerender cache
 RUN mkdir .next
@@ -38,6 +37,8 @@ RUN chown nextjs:nodejs .next
 # COPY --from=builder --chown=nextjs:nodejs /app/dist/apps/portal/.next/ ./.next
 COPY --from=builder --chown=nextjs:nodejs /app/dist/apps/portal/.next/standalone ./.next
 COPY --from=builder --chown=nextjs:nodejs /app/dist/apps/portal/.next/static ./.next/dist/apps/portal/.next/static
+COPY --from=builder --chown=nextjs:nodejs /app/apps/portal/public .next/apps/portal/public
+
 # COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 
 USER nextjs

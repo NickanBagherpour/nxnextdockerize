@@ -13,7 +13,7 @@ const nextConfig = {
     svgr: false,
   },
   output: 'standalone',
-  publicPath: '/public/', // Adjust the path as needed
+  // publicPath: '/public/', // Adjust the path as needed
 };
 
 const plugins = [
